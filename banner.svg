@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" width="1280" height="380" role="img" aria-label="课灵 KeLing 3.0">
+  <defs>
+    <linearGradient id="bg_KeLing3" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0.00" stop-color="#042f2e"/><stop offset="0.33" stop-color="#064e4a"/><stop offset="0.67" stop-color="#0f766e"/><stop offset="1.00" stop-color="#134e4a"/>
+    </linearGradient>
+    <linearGradient id="g_KeLing3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ccfbf1"/>
+      <stop offset="0.5" stop-color="#99f6e4"/>
+      <stop offset="1" stop-color="#5eead4"/>
+      <animate attributeName="x1" values="0;0.3;0" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="1;0.7;1" dur="8s" repeatCount="indefinite"/>
+    </linearGradient>
+    <filter id="blur_KeLing3" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+    <clipPath id="clip_KeLing3"><rect x="0" y="0" width="1280" height="380" rx="18"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip_KeLing3)">
+    <rect x="0" y="0" width="1280" height="380" fill="url(#bg_KeLing3)"/>
+    <g filter="url(#blur_KeLing3)">
+      
+  <circle cx="180" cy="120" r="150" fill="#2dd4bf" opacity="0.30">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 40 16.0; 0 0" dur="60s" begin="0.0s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+    <animate attributeName="opacity" values="0.18;0.42;0.18" dur="48.0s" begin="0.0s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="1080" cy="90" r="120" fill="#5eead4" opacity="0.30">
+    <animateTransform attributeName="transform" type="translate" values="0 0; -30 -12.0; 0 0" dur="70s" begin="1.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+    <animate attributeName="opacity" values="0.18;0.42;0.18" dur="56.0s" begin="1.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="980" cy="300" r="170" fill="#34d399" opacity="0.30">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 50 20.0; 0 0" dur="55s" begin="0.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+    <animate attributeName="opacity" values="0.18;0.42;0.18" dur="44.0s" begin="0.6s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle cx="320" cy="320" r="110" fill="#5eead4" opacity="0.30">
+    <animateTransform attributeName="transform" type="translate" values="0 0; -25 -10.0; 0 0" dur="65s" begin="2.0s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1; 0.4 0 0.6 1" keyTimes="0;0.5;1"/>
+    <animate attributeName="opacity" values="0.18;0.42;0.18" dur="52.0s" begin="2.0s" repeatCount="indefinite"/>
+  </circle>
+    </g>
+    
+  <g opacity="0.12">
+    <rect x="-300" y="150" width="300" height="3" fill="#5eead4" transform="rotate(-18 0 150)">
+      <animateTransform attributeName="transform" type="translate" values="-200 0; 1700 0" dur="9s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="-300" y="250" width="220" height="2" fill="#5eead4" transform="rotate(-18 0 250)">
+      <animateTransform attributeName="transform" type="translate" values="-200 0; 1700 0" dur="13s" begin="2s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+    
+  <circle cx="320" cy="190" r="150" fill="none" stroke="#5eead4" stroke-width="1.2" opacity="0.18" stroke-dasharray="6 14">
+    <animateTransform attributeName="transform" type="rotate" from="0 320 190" to="360 320 190" dur="40s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="320" cy="190" r="110" fill="none" stroke="#5eead4" stroke-width="1" opacity="0.12"/>
+    <g transform="translate(1050,190)">
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#5eead4" stroke-width="3"/>
+    <path d="M-12 -16 Q0 -28 12 -16 Q20 -2 12 14 Q0 26 -12 14 Q-20 -2 -12 -16 Z" fill="#34d399" opacity="0.85"/>
+    <g>
+      <circle cx="120" cy="0" r="9" fill="#5eead4"/>
+      <circle cx="-120" cy="0" r="7" fill="#34d399"/>
+      <circle cx="0" cy="-120" r="6" fill="#5eead4"/>
+      <circle cx="0" cy="120" r="8" fill="#34d399"/>
+      <ellipse cx="0" cy="0" rx="120" ry="46" fill="none" stroke="#5eead4" stroke-width="1.5" opacity="0.4"/>
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="30s" repeatCount="indefinite"/>
+    </g>
+  </g>
+    
+  <line x1="80" y1="250" x2="440" y2="250" stroke="url(#g_KeLing3)" stroke-width="4" stroke-linecap="round" stroke-dasharray="360" stroke-dashoffset="360">
+    <animate attributeName="stroke-dashoffset" values="360;0;0" keyTimes="0;0.55;1" dur="1.8s" fill="freeze"/>
+    <animate attributeName="opacity" values="0;1;1" keyTimes="0;0.2;1" dur="1.8s" fill="freeze"/>
+  </line>
+    
+  <text x="80" y="200" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="66" font-weight="800" fill="url(#g_KeLing3)" letter-spacing="-1">
+    <animateTransform attributeName="transform" type="translate" values="-40 12; 0 0; 0 0" keyTimes="0;0.5;1" dur="1.6s" fill="freeze" calcMode="spline" keySplines="0.2 0.8 0.2 1;0 0 1 1"/>
+    <animate attributeName="opacity" values="0;1;1" keyTimes="0;0.5;1" dur="1.6s" fill="freeze"/>
+    课灵 KeLing 3.0
+  </text>
+  <text x="82" y="238" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="22" font-weight="500" fill="#ccfbf1">
+    <animate attributeName="opacity" values="0;0;1" keyTimes="0;0.5;1" dur="1.8s" fill="freeze"/>
+    多端知识管理学习助手 · 培育你的知识星球
+  </text>
+    <text x="1240" y="356" text-anchor="end" font-family="'Segoe UI',Arial,sans-serif" font-size="14" fill="#ccfbf1" opacity="0.55">made with &#10084; by Hyhyhyyy</text>
+  </g>
+</svg>

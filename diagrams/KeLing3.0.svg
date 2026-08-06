@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560">
+<defs>
+    <filter id="sh" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arr-dk" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#334155"/>
+    </marker>
+    <style>.t{font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif} .lb{font-size:12px;fill:#475569;font-weight:600}</style>
+  </defs>
+<rect width="920" height="560" rx="16" fill="#f8fafc"/>
+<text x="460" y="36" text-anchor="middle" class="t" font-size="22" font-weight="800" fill="#0f172a">课灵 KeLing 3.0 多端架构</text>
+<rect x="40" y="90" width="240" height="180" rx="14" fill="#7c3aed" filter="url(#sh)"/>
+<text x="160" y="135" text-anchor="middle" class="t" font-size="17" font-weight="800" fill="#fff">Android 移动端</text>
+<text x="160" y="161" text-anchor="middle" class="t" font-size="12" fill="#e2e8f0">Kotlin · Jetpack Compose</text>
+<text x="160" y="187" text-anchor="middle" class="t" font-size="12" fill="#e2e8f0">Material Design 3</text>
+<rect x="340" y="90" width="240" height="180" rx="14" fill="#0891b2" filter="url(#sh)"/>
+<text x="460" y="135" text-anchor="middle" class="t" font-size="17" font-weight="800" fill="#fff">后端服务器</text>
+<text x="460" y="161" text-anchor="middle" class="t" font-size="12" fill="#e2e8f0">Node.js · Express · Prisma</text>
+<text x="460" y="187" text-anchor="middle" class="t" font-size="12" fill="#e2e8f0">SQLite · JWT</text>
+<rect x="640" y="90" width="240" height="180" rx="14" fill="#059669" filter="url(#sh)"/>
+<text x="760" y="135" text-anchor="middle" class="t" font-size="17" font-weight="800" fill="#fff">Web 网页端</text>
+<text x="760" y="161" text-anchor="middle" class="t" font-size="12" fill="#e2e8f0">React 18 · TypeScript</text>
+<text x="760" y="187" text-anchor="middle" class="t" font-size="12" fill="#e2e8f0">Vite · Zustand</text>
+<rect x="340" y="320" width="240" height="52" rx="10" fill="#64748b" stroke="#334155" stroke-width="1.5" filter="url(#sh)"/>
+<text x="460.0" y="352.0" text-anchor="middle" class="t" font-size="14" font-weight="700" fill="#fff">shared 共享类型定义</text>
+<line x1="160" y1="270" x2="380" y2="310" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="760" y1="270" x2="540" y2="310" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="460" y1="270" x2="460" y2="316" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+<line x1="340" y1="372" x2="160" y2="290" stroke="#64748b" stroke-width="2" marker-end="url(#arr-dk)"/>
+<line x1="580" y1="372" x2="760" y2="290" stroke="#64748b" stroke-width="2" marker-end="url(#arr-dk)"/>
+<text x="60" y="410" class="lb">✅ JWT 认证同步</text>
+<text x="220" y="410" class="lb">✅ 课程管理</text>
+<text x="380" y="410" class="lb">✅ 任务系统</text>
+<text x="540" y="410" class="lb">✅ 笔记同步</text>
+<text x="700" y="410" class="lb">✅ 签到记录</text>
+<text x="60" y="450" class="lb">🔄 数据实时同步</text>
+</svg>
