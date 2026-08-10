@@ -1,109 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" width="1280" height="380" role="img" aria-label="课灵 KeLing 3.0 · 多端知识管理">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 380" role="img" aria-label="KeLing3.0" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#06181a"/>
-      <stop offset="0.55" stop-color="#0c2e2e"/>
-      <stop offset="1" stop-color="#051415"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#04201f"/>
+      <stop offset="1" stop-color="#07362f"/>
     </linearGradient>
-    <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#99f6e4" stop-opacity="0"/>
-      <stop offset="0.5" stop-color="#2dd4bf" stop-opacity="0.8"/>
-      <stop offset="1" stop-color="#99f6e4" stop-opacity="0"/>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#a7f3d0"/>
     </linearGradient>
-    <radialGradient id="haloGrad" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0" stop-color="#14b8a6" stop-opacity="0.5"/>
-      <stop offset="1" stop-color="#14b8a6" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#5eead4"/>
-      <stop offset="1" stop-color="#2dd4bf"/>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#34d399" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
-    <radialGradient id="planetGrad" cx="0.4" cy="0.35" r="0.7">
-      <stop offset="0" stop-color="#5eead4"/>
-      <stop offset="1" stop-color="#0f766e"/>
-    </radialGradient>
   </defs>
-
-  <rect width="1280" height="380" fill="url(#bgGrad)"/>
-
-  <!-- (a) BANNER-WIDE MOTION: teal light sweep across the full width -->
-  <g>
-    <rect x="-220" y="0" width="220" height="380" fill="url(#beamGrad)" opacity="0">
-      <animate attributeName="x" values="-220;1500;-220" dur="8.3s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.5;0" dur="8.3s" repeatCount="indefinite"/>
-    </rect>
+  <rect width="1280" height="380" fill="url(#bg)"/>
+  <circle cx="960" cy="190" r="152" fill="#34d399" opacity="0.07"/>
+  <circle cx="960" cy="190" r="152" fill="none" stroke="#34d399" stroke-width="2" opacity="0.18"/>
+  <rect x="-220" y="0" width="220" height="380" fill="url(#beam)">
+    <animate attributeName="x" values="-220;1300;-220" dur="7.5s" repeatCount="indefinite"/>
+  </rect>
+  <g transform="translate(960,190)">
+    <circle r="118" fill="#031a18" stroke="#34d399" stroke-width="8"/>
+    <ellipse cx="0" cy="0" rx="96" ry="30" fill="none" stroke="#34d399" stroke-width="8" transform="rotate(-20)"/>
+    <circle r="54" fill="#07362f" stroke="#34d399" stroke-width="8"/>
+    <line x1="0" y1="-52" x2="0" y2="-74" stroke="#a7f3d0" stroke-width="7" stroke-linecap="round"/>
+    <path d="M0,-74 C-16,-78 -22,-94 -10,-102 C-4,-94 0,-84 0,-74 Z" fill="#34d399"/>
+    <path d="M0,-74 C16,-78 22,-94 10,-102 C4,-94 0,-84 0,-74 Z" fill="#34d399" opacity="0.85"/>
   </g>
-  <g fill="#99f6e4">
-    <circle cx="0" cy="90" r="2.2" opacity="0.6">
-      <animate attributeName="cx" values="-20;1320" dur="10s" repeatCount="indefinite"/>
+  <g transform="translate(380,138)">
+    <circle r="10" fill="#a7f3d0">
+      <animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="0" cy="300" r="1.8" opacity="0.5">
-      <animate attributeName="cx" values="1320;-20" dur="12s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-
-  <!-- (b) TITLE-SURROUND MOTION: pulsing halo + draw-on underline -->
-  <circle cx="288" cy="128" r="132" fill="url(#haloGrad)">
-    <animate attributeName="r" values="116;144;116" dur="4.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.5;0.85;0.5" dur="4.5s" repeatCount="indefinite"/>
-  </circle>
-
-  <text x="62" y="134" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="52" font-weight="800" fill="url(#titleGrad)">课灵 KeLing</text>
-  <line x1="64" y1="154" x2="278" y2="154" stroke="#2dd4bf" stroke-width="4" stroke-linecap="round" stroke-dasharray="220" stroke-dashoffset="220">
-    <animate attributeName="stroke-dashoffset" values="220;0;0;220" keyTimes="0;0.5;0.85;1" dur="6s" repeatCount="indefinite"/>
-  </line>
-  <text x="64" y="188" font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="19" font-weight="500" fill="#99f6e4">多端知识管理 · 培育你的知识星球</text>
-
-  <g font-family="'PingFang SC','Microsoft YaHei',sans-serif" font-size="15" font-weight="600" fill="#99f6e4">
-    <rect x="64" y="208" width="96" height="30" rx="15" fill="#0c2e2e"/>
-    <text x="84" y="228">多端同步</text>
-    <rect x="176" y="208" width="96" height="30" rx="15" fill="#0c2e2e"/>
-    <text x="196" y="228">知识卡片</text>
-    <rect x="288" y="208" width="96" height="30" rx="15" fill="#0c2e2e"/>
-    <text x="308" y="228">笔记复习</text>
-  </g>
-
-  <!-- HERO MOTIF (right): a knowledge planet with orbiting nodes + three synced endpoints -->
-  <g transform="translate(985,188)">
-    <!-- sync lines device -> planet -->
-    <g stroke="#2dd4bf" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="10 8" opacity="0.7">
-      <path d="M-120,84 C-70,40 -30,10 0,-30">
-        <animate attributeName="stroke-dashoffset" values="0;-36;0" dur="2.4s" repeatCount="indefinite"/>
-      </path>
-      <path d="M0,96 C0,50 0,10 0,-30">
-        <animate attributeName="stroke-dashoffset" values="0;-36;0" dur="2.4s" begin="0.4s" repeatCount="indefinite"/>
-      </path>
-      <path d="M120,84 C70,40 30,10 0,-30">
-        <animate attributeName="stroke-dashoffset" values="0;-36;0" dur="2.4s" begin="0.8s" repeatCount="indefinite"/>
-      </path>
-    </g>
-    <!-- knowledge planet -->
     <g>
-      <animateTransform attributeName="transform" type="scale" values="1 1;1.05 1.05;1 1" dur="3.6s" repeatCount="indefinite"/>
-      <circle cx="0" cy="-10" r="44" fill="url(#planetGrad)"/>
-      <ellipse cx="0" cy="-10" rx="78" ry="26" fill="none" stroke="#5eead4" stroke-width="2.5" opacity="0.6" transform="rotate(-16 0 -10)"/>
-      <!-- sprout (cultivate) -->
-      <path d="M0,-54 C0,-66 -8,-72 -16,-70 C-8,-66 -4,-60 0,-54 Z" fill="#5eead4"/>
-      <path d="M0,-54 C0,-64 8,-68 16,-64 C8,-62 4,-58 0,-54 Z" fill="#5eead4"/>
-      <rect x="-2" y="-58" width="4" height="14" rx="2" fill="#34d399"/>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="5s" repeatCount="indefinite"/>
+      <circle cx="56" cy="0" r="9" fill="#34d399"/>
     </g>
-    <!-- orbiting knowledge nodes -->
-    <g>
-      <animateTransform attributeName="transform" type="rotate" from="0 0 -10" to="360 0 -10" dur="12s" repeatCount="indefinite"/>
-      <circle cx="78" cy="-10" r="7" fill="#fde68a"/>
-      <circle cx="-39" cy="56" r="7" fill="#5eead4"/>
-      <circle cx="-39" cy="-76" r="7" fill="#a5f3fc"/>
-    </g>
-    <!-- three endpoints: phone / web / server -->
-    <g fill="#0c2e2e" stroke="#5eead4" stroke-width="2">
-      <rect x="-137" y="64" width="34" height="56" rx="6"/>
-      <rect x="-13" y="72" width="46" height="42" rx="5"/>
-      <rect x="100" y="62" width="40" height="58" rx="5"/>
-    </g>
-    <g fill="#5eead4">
-      <rect x="-131" y="72" width="22" height="4" rx="2"/><rect x="-131" y="82" width="22" height="4" rx="2"/>
-      <rect x="-6" y="80" width="32" height="4" rx="2"/><rect x="-6" y="90" width="32" height="4" rx="2"/>
-      <rect x="108" y="72" width="24" height="4" rx="2"/><rect x="108" y="82" width="24" height="4" rx="2"/>
-    </g>
+  </g>
+  <text x="70" y="150" font-size="60" font-weight="800" fill="url(#title)">KeLing3.0</text>
+  <text x="72" y="198" font-size="22" fill="#aee9d2" opacity="0.9">多端知识管理 · 知识星球</text>
+  <g font-size="16" font-weight="600">
+    <rect x="72" y="220" width="120" height="34" rx="17" fill="#34d399" opacity="0.18" stroke="#6ee7b7" stroke-width="2"/>
+    <text x="132" y="242" fill="#d4f7e6" text-anchor="middle">Monorepo</text>
+    <rect x="204" y="220" width="108" height="34" rx="17" fill="#a7f3d0" opacity="0.14" stroke="#a7f3d0" stroke-width="2"/>
+    <text x="258" y="242" fill="#e3fcef" text-anchor="middle">同步</text>
   </g>
 </svg>
