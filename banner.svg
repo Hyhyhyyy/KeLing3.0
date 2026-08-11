@@ -38,11 +38,6 @@
       <circle r="60" fill="url(#planet)" stroke="#a7f3d0" stroke-width="9"/>
       <path d="M-34,-20 Q-10,-34 14,-18 Q4,2 -20,4 Q-40,-2 -34,-20 Z" fill="#047857" opacity="0.7"/>
       <path d="M10,18 Q30,12 36,30 Q20,40 6,32 Q4,22 10,18 Z" fill="#047857" opacity="0.7"/>
-      <circle cx="-20" cy="-8" r="9" fill="#ffffff"/>
-      <circle cx="20" cy="-8" r="9" fill="#ffffff"/>
-      <circle cx="-20" cy="-6" r="4.5" fill="#064e3b"/>
-      <circle cx="20" cy="-6" r="4.5" fill="#064e3b"/>
-      <path d="M-16,14 Q0,28 16,14" fill="none" stroke="#064e3b" stroke-width="6" stroke-linecap="round"/>
     </g>
     <g>
       <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="6s" repeatCount="indefinite"/>
