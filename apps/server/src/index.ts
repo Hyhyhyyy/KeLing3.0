@@ -71,6 +71,20 @@ let cachedVersionInfo: any = null;
 let cacheTimestamp = 0;
 const CACHE_DURATION = 5 * 60 * 1000; // 5分钟缓存
 
+interface GitHubReleaseAsset {
+  name: string;
+  browser_download_url: string;
+  size: number;
+}
+
+interface GitHubRelease {
+  tag_name: string;
+  assets: GitHubReleaseAsset[];
+  body: string | null;
+  published_at: string;
+  html_url: string;
+}
+
 // 从GitHub API获取最新Release信息
 async function fetchLatestRelease() {
   const now = Date.now();
@@ -95,13 +109,16 @@ async function fetchLatestRelease() {
       throw new Error(`GitHub API error: ${response.status}`);
     }
 
-    const release = await response.json();
+    const release = await response.json() as GitHubRelease;
+    if (!release.tag_name || !Array.isArray(release.assets)) {
+      throw new Error('GitHub release response is missing required fields');
+    }
 
     // 解析版本信息
     const versionName = release.tag_name.replace('v', '');
 
     // 从APK文件名解析versionCode，或使用默认值
-    const apkAsset = release.assets?.find((a: any) => a.name.endsWith('.apk'));
+    const apkAsset = release.assets.find(a => a.name.endsWith('.apk'));
     const downloadUrl = apkAsset?.browser_download_url ||
       `https://github.com/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}/releases/download/${release.tag_name}/KeLing-${release.tag_name}.apk`;
 

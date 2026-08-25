@@ -16,6 +16,8 @@
     "build": "npm run build:web && npm run build:server",
     "build:web": "cd apps/web && npm run build",
     "build:server": "cd apps/server && npm run build",
+    "lint": "npm run lint --workspace=keling-web",
+    "check": "npm run lint && npm run build",
     "install:all": "npm install && cd apps/server && npm install && cd ../web && npm install"
   },
   "devDependencies": {

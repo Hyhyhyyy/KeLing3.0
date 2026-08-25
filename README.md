@@ -38,6 +38,9 @@
 
 > 🌱 多端知识管理应用 - 培育你的知识星球
 
+> **项目状态：Preview。** 当前适合开发体验和封闭试用，不建议承载唯一副本的重要资料。
+> 首个受信任的 Android 签名发布前必须完成签名密钥轮换，详见 [SECURITY.md](SECURITY.md)。
+
 ## 📱 项目结构
 
 ```
@@ -145,6 +148,16 @@ npm run dev:web     # 前端: http://localhost:5173
 ## 📄 License
 
 MIT License
+
+## 🤝 社区与长期维护
+
+- 贡献和本地验证：[CONTRIBUTING.md](CONTRIBUTING.md)
+- 产品路线与 1.0 标准：[ROADMAP.md](ROADMAP.md)
+- 支持边界：[SUPPORT.md](SUPPORT.md)
+- 安全报告与签名轮换要求：[SECURITY.md](SECURITY.md)
+
+可复现缺陷请提交 Issue，产品设计问题请使用 GitHub Discussions。APK、数据库、`.env`
+和签名库不再作为源码提交；可分发二进制只应由通过门禁的发布工作流生成。
 
 ---
 

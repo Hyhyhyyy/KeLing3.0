@@ -5,6 +5,7 @@ node_modules/
 
 # Build outputs
 dist/
+dev-dist/
 build/
 *.tsbuildinfo
 
@@ -42,7 +43,9 @@ apps/android/*.iml
 apps/android/.cxx/
 apps/android/captures/
 *.jks
+*.jks.*
 *.keystore
+releases/*.apk
 
 # Prisma
 apps/server/prisma/*.db

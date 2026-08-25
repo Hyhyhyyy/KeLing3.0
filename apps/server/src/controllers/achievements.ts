@@ -51,7 +51,10 @@ export const getUserAchievements = async (req: AuthRequest, res: Response) => {
 
     // 获取所有成就定义
     const achievements = await prisma.achievement.findMany();
-    const achievementMap = new Map(achievements.map(a => [a.id, a]));
+    type AchievementReward = { id: string; rewardEnergy: number };
+    const achievementMap = new Map(
+      (achievements as AchievementReward[]).map(a => [a.id, a] as const)
+    );
 
     // 计算统计数据
     const unlocked = userAchievements.filter(ua => ua.isUnlocked);
