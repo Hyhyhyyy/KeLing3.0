@@ -19,16 +19,6 @@ android {
     // 编译SDK版本，34是最新的Android 14
     compileSdk = 34
 
-    // 签名配置
-    signingConfigs {
-        create("release") {
-            storeFile = file("../keling-release.jks")
-            storePassword = "keling123"
-            keyAlias = "keling"
-            keyPassword = "keling123"
-        }
-    }
-
     defaultConfig {
         // 应用的唯一标识，发布到应用商店后不能改
         applicationId = "com.keling.app"
@@ -53,13 +43,6 @@ android {
             useSupportLibrary = true
         }
 
-        buildConfigField(
-            "String",
-            "DEEPSEEK_API_KEY",
-            "\"sk-374b9fb3344e4b32be81023272bd162f\""
-        )
-
-        buildFeatures { buildConfig = true }
     }
 
 
@@ -71,8 +54,8 @@ android {
      */
     buildTypes {
         release {
-            // 使用release签名配置
-            signingConfig = signingConfigs.getByName("release")
+            // Trusted signing stays disabled until a new key is generated and
+            // supplied through protected CI secrets. Never embed credentials here.
             // 是否启用代码压缩，release版本一定要true
             isMinifyEnabled = false
             // 代码混淆规则文件（暂时不用）

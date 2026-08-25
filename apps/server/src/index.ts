@@ -2,6 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { PrismaClient } from '@prisma/client';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
+import { allowedCorsOrigins, requireJwtSecret } from './config/security';
 
 // 导入路由
 import authRoutes from './routes/auth';
@@ -15,30 +18,28 @@ import achievementRoutes from './routes/achievements';
 import checkinRoutes from './routes/checkin';
 
 dotenv.config();
+requireJwtSecret();
 
 export const prisma = new PrismaClient();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// 中间件 - 手动设置CORS以确保正确
-app.use((req, res, next) => {
-  const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'http://localhost:5176', 'http://localhost:3000', 'https://web-ashy-rho-36.vercel.app'];
-  const origin = req.headers.origin;
-  if (origin && allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-  } else {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-  }
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(200);
-  }
-  next();
-});
-app.use(express.json({ limit: '10mb' }));
+const corsOrigins = allowedCorsOrigins();
+app.disable('x-powered-by');
+app.use(helmet());
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin || corsOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error('Origin is not allowed by CORS policy'));
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+app.use(express.json({ limit: '1mb' }));
+app.use(rateLimit({ windowMs: 15 * 60 * 1000, limit: 300, standardHeaders: true, legacyHeaders: false }));
+app.use('/api/auth', rateLimit({ windowMs: 15 * 60 * 1000, limit: 20, standardHeaders: true, legacyHeaders: false }));
 
 // API 路由
 app.use('/api/auth', authRoutes);

@@ -19,3 +19,11 @@ from the current tree does not remove it from existing Git history.
 Local `.env` files are ignored. Commit only `.env.example` templates containing safe
 placeholders. Production JWT and AI-provider secrets must be injected by the deployment
 platform and rotated if they are ever exposed.
+
+## Required credential response
+
+The previously embedded AI-provider key and Android signing passwords must be considered
+public. Revoke and replace the provider key before enabling AI, rotate the Android signing
+identity before any trusted release, and invalidate existing sessions by deploying a new
+random JWT secret of at least 32 bytes. Never place replacements in Git history, Gradle
+properties, an APK, screenshots, issues, or workflow logs.

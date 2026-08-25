@@ -4,17 +4,20 @@ import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 import { prisma } from '../index';
 import { AuthRequest } from '../middleware/auth';
+import { requireJwtSecret } from '../config/security';
 
 // JWT 过期时间
 const JWT_EXPIRES_IN = '7d';
+const JWT_CLAIMS = { algorithm: 'HS256' as const, issuer: 'keling-server', audience: 'keling-clients' };
 
 // 注册
 export const register = async (req: Request, res: Response) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email: rawEmail, password } = req.body;
+    const email = typeof rawEmail === 'string' ? rawEmail.trim().toLowerCase() : '';
 
-    if (!email || !password) {
-      return res.status(400).json({ error: '邮箱和密码为必填项' });
+    if (!email || typeof password !== 'string' || password.length < 10 || password.length > 128) {
+      return res.status(400).json({ error: '请输入有效邮箱和 10–128 位密码' });
     }
 
     // 检查用户是否已存在
@@ -33,7 +36,7 @@ export const register = async (req: Request, res: Response) => {
     const user = await prisma.user.create({
       data: {
         id: uuidv4(),
-        name: name || '星际园丁',
+        name: typeof name === 'string' && name.trim() ? name.trim().slice(0, 80) : '星际园丁',
         email,
         passwordHash,
         level: 1,
@@ -62,8 +65,8 @@ export const register = async (req: Request, res: Response) => {
     // 生成 Token
     const token = jwt.sign(
       { userId: user.id },
-      process.env.JWT_SECRET || 'keling_secret_key',
-      { expiresIn: JWT_EXPIRES_IN }
+      requireJwtSecret(),
+      { expiresIn: JWT_EXPIRES_IN, ...JWT_CLAIMS }
     );
 
     res.status(201).json({
@@ -90,9 +93,10 @@ export const register = async (req: Request, res: Response) => {
 // 登录
 export const login = async (req: Request, res: Response) => {
   try {
-    const { email, password } = req.body;
+    const { email: rawEmail, password } = req.body;
+    const email = typeof rawEmail === 'string' ? rawEmail.trim().toLowerCase() : '';
 
-    if (!email || !password) {
+    if (!email || typeof password !== 'string') {
       return res.status(400).json({ error: '邮箱和密码为必填项' });
     }
 
@@ -115,8 +119,8 @@ export const login = async (req: Request, res: Response) => {
     // 生成 Token
     const token = jwt.sign(
       { userId: user.id },
-      process.env.JWT_SECRET || 'keling_secret_key',
-      { expiresIn: JWT_EXPIRES_IN }
+      requireJwtSecret(),
+      { expiresIn: JWT_EXPIRES_IN, ...JWT_CLAIMS }
     );
 
     res.json({
@@ -151,16 +155,13 @@ export const refreshToken = async (req: Request, res: Response) => {
       return res.status(401).json({ error: '未提供令牌' });
     }
 
-    // 验证旧 Token（即使过期也尝试解析）
-    let decoded;
+    // Refresh is allowed only for a token with a valid signature and lifetime.
+    // Expired sessions must authenticate again until rotating refresh tokens exist.
+    let decoded: { userId: string };
     try {
-      decoded = jwt.verify(oldToken, process.env.JWT_SECRET || 'keling_secret_key') as { userId: string };
+      decoded = jwt.verify(oldToken, requireJwtSecret(), JWT_CLAIMS) as { userId: string };
     } catch {
-      // Token 过期，尝试解码（不验证）
-      decoded = jwt.decode(oldToken) as { userId: string };
-      if (!decoded) {
-        return res.status(401).json({ error: '令牌无效' });
-      }
+      return res.status(401).json({ error: '令牌无效或已过期，请重新登录' });
     }
 
     // 检查用户是否存在
@@ -175,8 +176,8 @@ export const refreshToken = async (req: Request, res: Response) => {
     // 生成新 Token
     const newToken = jwt.sign(
       { userId: user.id },
-      process.env.JWT_SECRET || 'keling_secret_key',
-      { expiresIn: JWT_EXPIRES_IN }
+      requireJwtSecret(),
+      { expiresIn: JWT_EXPIRES_IN, ...JWT_CLAIMS }
     );
 
     res.json({ token: newToken });

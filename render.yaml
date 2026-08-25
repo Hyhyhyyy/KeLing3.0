@@ -6,7 +6,7 @@ services:
     region: singapore
     plan: free
     rootDir: apps/server
-    buildCommand: npm install && rm -rf prisma/migrations && npx prisma generate --schema=prisma/schema.postgresql.prisma && npm run build && npx prisma db push --schema=prisma/schema.postgresql.prisma --accept-data-loss
+    buildCommand: npm ci && npx prisma generate --schema=prisma/schema.postgresql.prisma && npx prisma migrate deploy --schema=prisma/schema.postgresql.prisma && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
@@ -19,6 +19,8 @@ services:
         generateValue: true
       - key: JWT_EXPIRES_IN
         value: 7d
+      - key: CORS_ORIGINS
+        sync: false
       - key: DEEPSEEK_API_KEY
         sync: false
       - key: DEEPSEEK_API_URL
